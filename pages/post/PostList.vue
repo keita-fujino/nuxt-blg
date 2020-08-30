@@ -73,7 +73,7 @@ a {
 /* 600px以下の時*/
 @media (max-width: 600px) {
   .main-img {
-    height: 200px;
+    height: 350px;
     width: 100%;
   }
   .postlist {

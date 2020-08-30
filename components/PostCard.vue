@@ -34,7 +34,7 @@
 										<div>{{ getFormattedDate(post.fields.date) }}</div>
 									</div>
 									<div class="tags">
-										<span class="tag" v-for="(tag, i) in tags" :key="i">{{ tag }}</span>
+										<!--<span class="tag" v-for="(tag, i) in tags" :key="i">{{ tag }}</span>-->
 									</div>
 								</v-card-text>
 								<v-fade-transition>
@@ -43,7 +43,7 @@
 										absolute
 										color="#424242"
 									>
-									<nuxt-link to="" class="post">
+									<nuxt-link :to="linkTo(post)" class="post">
 										<v-btn class="readnext gray--text" color="#69F0AE">続きを読む</v-btn>
 									</nuxt-link>
 									</v-overlay>
@@ -100,6 +100,9 @@ export default {
 			const month = originDate.getMonth() + 1
 			const day = originDate.getDate()
 			return `${year}年${month}月${day}日`
+		},
+		linkTo(post) {
+			return { name: 'post-slug', params: { slug: post.fields.slug }}
 		}
   }
 }
