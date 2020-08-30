@@ -1,9 +1,9 @@
 import { createClient } from '@/plugins/contentful.js'
 
-const client = createClient()
+const client = createClient();
 
 
-export const state = ()=> ({
+export const state = () => ({
   posts: []
 })
 
@@ -18,7 +18,7 @@ export const mutations = {
 }
 
 export const actions = {
-	async getPosts ({ commit, env }) {
+	async getPosts ({ commit }) {
 		await client.getEntries({
 			// content_typeは、env.CTF_BLOG_POST_TYPE_IDの値（変更したらここを修正）
       content_type: 'blog',

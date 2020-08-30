@@ -1,5 +1,5 @@
 <template>
-	<v-container class="pa-2" :key="getkey">
+	<v-container class="pa-2">
 	<section id="postlist" class="">
 		<v-row dense class="postlist" justify="center">
 				<v-col class="pa-0 my-3 mx-2" cols="12" sm="12" md="12" lg="7" xl="7">
@@ -79,11 +79,11 @@ export default {
     slug: {
       type: String,
       required: true
-		},
-		thumbnail: {
+	},
+	thumbnail: {
       required: true
-		},
-		post: {
+	},
+	post: {
       type: Object,
       reqire: true,
     }

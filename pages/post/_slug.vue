@@ -62,11 +62,11 @@ export default {
 	},
 	computed: {
 		...mapState(['posts']),
-		post() {
-			return this.posts.find(
-				post => post.fields.slug === this.$route.params.slug
-			)
-		}
+// 		post() {
+//			return this.posts.find(
+//				post => post.fields.slug === this.$route.params.slug
+//			)
+//		}
 	},
 	// async asyncData({ env }) {
   //   let posts = []
