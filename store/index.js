@@ -23,9 +23,10 @@ export const actions = {
 			// content_typeは、env.CTF_BLOG_POST_TYPE_IDの値（変更したらここを修正）
       content_type: 'blog',
       order: "-fields.date"
-    }).then((response) => {
-			commit('setPosts', response.items)
-    }).catch(console.error)
-    return { posts }
+    })
+      .then((response) => {
+			  commit('setPosts', response.items)
+    })
+      .catch(console.error)
 	}
 }

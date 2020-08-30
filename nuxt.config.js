@@ -1,6 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
 
-require('dotenv').config();
+require('dotenv').config()
 const client = require('./plugins/contentful').default
 
 export default {
@@ -104,18 +104,17 @@ export default {
     ]
   },
   generate: {
-    routes () {
-      return Promise.all([
+    async routes () {
+      const [posts] = await Promise.all([
         client.getEntries({
           content_type: 'blog'
         })
-      ]).then(([posts]) => {
-        return [
-          ...posts.items.map((post) => {
-            return { route: `posts/${post.fields.slug}`, payload: post }
-          })
-        ]
-      })
+      ]);
+      return [
+        ...posts.items.map((post) => {
+          return { route: `post/${post.fields.slug}`, payload: post };
+        })
+      ];
     }
   }
 }
