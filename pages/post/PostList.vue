@@ -23,22 +23,27 @@
 
 <script>
 import PostCard from '@/components/PostCard.vue'
-import { createClient } from '@/plugins/contentful.js'
+// import { createClient } from '@/plugins/contentful.js'　←削除の代わりにコメントアウト
+// const client = createClient() ←削除の代わりにコメントアウト
 
-const client = createClient()
+import { mapState } from 'vuex'
 
 export default {
   components: { PostCard },
-	async asyncData({ env }) {
-    let posts = []
-    await client.getEntries({
-      content_type: env.CTF_BLOG_POST_TYPE_ID,
-      order: "-fields.date"
-    }).then((response) => {
-      posts=response.items
-    }).catch(console.error)
-    return { posts }
+  computed: {
+    ...mapState(['posts'])
   }
+  //　以下、コメントアウトで備忘のため残す
+	//async asyncData({ env }) {
+  //  let posts = []
+  //  await client.getEntries({
+  //    content_type: env.CTF_BLOG_POST_TYPE_ID,
+  //    order: "-fields.date"
+  //  }).then((response) => {
+  //    posts=response.items
+  //  }).catch(console.error)
+  //  return { posts }
+  //}
 }
 </script>
 

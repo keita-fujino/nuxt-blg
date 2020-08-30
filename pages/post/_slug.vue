@@ -36,7 +36,7 @@
         </v-container>
 			</v-img>
       <v-container class="container">
-				<p><small>{{ getFormattedDate(post.fields.date) }}</small></p>
+				<p><small>{{ $getFormattedDate(post.fields.date) }}</small></p>
         <hr class="divider my-5">
 				<v-container class="post-body">
           <main lang="md">
@@ -50,9 +50,9 @@
 </template>
 
 <script>
-import { createClient } from '@/plugins/contentful.js'
-
-const client = createClient()
+// import { createClient } from '@/plugins/contentful.js'
+// const client = createClient()
+import { mapState } from 'vuex'
 
 export default {
 	props: {
@@ -61,31 +61,31 @@ export default {
     }
 	},
 	computed: {
+		...mapState(['posts']),
 		post() {
 			return this.posts.find(
 				post => post.fields.slug === this.$route.params.slug
 			)
 		}
 	},
-	async asyncData({ env }) {
-    let posts = []
-    await client.getEntries({
-      content_type: env.CTF_BLOG_POST_TYPE_ID,
-      order: "-fields.date"
-    }).then((response) => {
-      posts = response.items
-    }).catch(console.error)
-    return { posts }
-	},
-	methods: {
-		getFormattedDate (date) {
-      const originDate = new Date(date)
-      const year = originDate.getFullYear()
-      const month = originDate.getMonth() + 1
-      const day = originDate.getDate()
-      return `${year}年${month}月${day}日`
-		}
-	}
+	// async asyncData({ env }) {
+  //   let posts = []
+  //   await client.getEntries({
+  //     content_type: env.CTF_BLOG_POST_TYPE_ID,
+  //     order: "-fields.date"
+  //   }).then((response) => {
+  //     posts = response.items
+  //   }).catch(console.error)
+  //   return { posts }
+  // },
+  async asyncData({ payload, store, params, error }) {
+    const post = payload || await store.state.posts.find(post => post.fields.slug === params.slug)
+    if (post) {
+      return { post }
+    } else {
+      return error ({ statusCode: '404', message: 'お探しのページは見つかりませんでした'})
+    }
+  }
 }
 </script>
 

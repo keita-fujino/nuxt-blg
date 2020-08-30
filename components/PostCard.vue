@@ -31,7 +31,7 @@
 								<v-card-subtitle class="pb-0">{{ post.fields.category }}</v-card-subtitle>
 								<v-card-text class="text--primary">
 									<div class="date" >
-										<div>{{ getFormattedDate(post.fields.date) }}</div>
+										<div>{{ $getFormattedDate(post.fields.date) }}</div>
 									</div>
 									<div class="tags">
 										<!--<span class="tag" v-for="(tag, i) in tags" :key="i">{{ tag }}</span>-->
@@ -94,13 +94,6 @@ export default {
 		}
 	},
 	methods: {
-		getFormattedDate (date) {
-			const originDate = new Date(date)
-			const year = originDate.getFullYear()
-			const month = originDate.getMonth() + 1
-			const day = originDate.getDate()
-			return `${year}年${month}月${day}日`
-		},
 		linkTo(post) {
 			return { name: 'post-slug', params: { slug: post.fields.slug }}
 		}
