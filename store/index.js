@@ -25,6 +25,7 @@ export const actions = {
       order: "-fields.date"
     }).then((response) => {
 			commit('setPosts', response.items)
-		}).catch(console.error)
+    }).catch(console.error)
+    return { posts }
 	}
 }
