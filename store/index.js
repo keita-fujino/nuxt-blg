@@ -1,14 +1,13 @@
-import { createClient } from '@/plugins/contentful.js'
-
-const client = createClient();
-
+import client from '@/plugins/contentful.js'
 
 export const state = () => ({
   posts: []
 })
 
 export const getters = {
-
+  linkTo: () => (name, post) => {
+    return { name: `${name}-slug`, params: { slug: post.fields.slug }}
+  }
 }
 
 export const mutations = {
@@ -20,13 +19,10 @@ export const mutations = {
 export const actions = {
 	async getPosts ({ commit }) {
 		await client.getEntries({
-			// content_typeは、env.CTF_BLOG_POST_TYPE_IDの値（変更したらここを修正）
-      content_type: 'blog',
+      content_type: process.env.CTF_BLOG_POST_TYPE_ID,
       order: "-fields.date"
-    })
-      .then((response) => {
-			  commit('setPosts', response.items)
-    })
-      .catch(console.error)
-	}
+    }).then(res =>
+			commit('setPosts', res.items)
+    ).catch(console.error)
+  }
 }

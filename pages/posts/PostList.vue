@@ -9,7 +9,7 @@
         <v-container>
           <header>
             <v-row nav dence class="nav d-flex flex-row-reverse mx-2">
-              <nuxt-link to="/post/PostList" class="items white--text">Articles</nuxt-link>
+              <nuxt-link to="/posts/PostList" class="items white--text">Articles</nuxt-link>
               <nuxt-link to="/" class="items white--text text-center">Home</nuxt-link>
             </v-row>
             <h1 class="title white--text">Articles</h1>
@@ -26,7 +26,7 @@ import PostCard from '@/components/PostCard.vue'
 // import { createClient } from '@/plugins/contentful.js'　←削除の代わりにコメントアウト
 // const client = createClient() ←削除の代わりにコメントアウト
 
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 
 export default {
   components: { PostCard },

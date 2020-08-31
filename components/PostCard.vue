@@ -43,7 +43,7 @@
 										absolute
 										color="#424242"
 									>
-									<nuxt-link :to="linkTo(post)" class="post">
+									<nuxt-link :to="linkTo('posts', post)" class="post">
 										<v-btn class="readnext gray--text" color="#69F0AE">続きを読む</v-btn>
 									</nuxt-link>
 									</v-overlay>
@@ -58,6 +58,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
 	props: {
     title: {
@@ -93,10 +94,13 @@ export default {
 			overlay: false
 		}
 	},
-	methods: {
-		linkTo(post) {
-			return { name: 'post-slug', params: { slug: post.fields.slug }}
-		}
-  }
+	//methods: {
+	//	linkTo(post) {
+	//		return { name: 'post-slug', params: { slug: post.fields.slug }}
+	//	}
+	//}
+	computed: {
+		...mapGetters([ 'linkTo' ]) 
+	}
 }
 </script>

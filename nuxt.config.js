@@ -40,7 +40,8 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
-    '@/plugins/utils.js'
+    '@/plugins/utils.js',
+    '@/plugins/contentful'
   ],
   /*
   ** Auto import components
@@ -100,7 +101,7 @@ export default {
   },
   router: {
     middleware: [
-      'getPosts'
+      'getContentful'
     ]
   },
   generate: {
