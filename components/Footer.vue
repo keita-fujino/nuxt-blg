@@ -15,7 +15,7 @@
         </a>
         </v-btn></li>
     </ul>
-    <nuxt-link to="/" class="copy-right white--text text-center">© Life Log.</nuxt-link>
+    <nuxt-link to="/" class="copy-right white--text text-center">© Eureka</nuxt-link>
   </footer>
 </template>
 
@@ -25,7 +25,7 @@ export default {
     icons: [
       { icon: 'mdi-facebook', href: '' },
       { icon: 'mdi-twitter', href: '' },
-      { icon: 'mdi-linkedin', href: '' },
+      { icon: 'mdi-github', href: 'https://github.com/keita-fujino' },
       { icon: 'mdi-instagram', href: '' }
     ]
   })

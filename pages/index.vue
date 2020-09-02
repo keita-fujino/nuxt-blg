@@ -12,7 +12,9 @@
             <nuxt-link to="/posts/PostList" class="items white--text">Articles</nuxt-link>
             <nuxt-link to="/" class="items white--text text-center">Home</nuxt-link>
           </v-row>
-          <h1 class="title white--text">Life Log.</h1>
+          <nuxt-link to="/">
+            <h1 class="title white--text">【 Eureka 】</h1>
+          </nuxt-link>  
         </header>
       </v-container>
       </v-img>
@@ -31,7 +33,7 @@
             <p style="" class="gray--text">Graduate from Iwate University (2014)</p>
             <h3 style="color: #69F0AE;" class="text--center my-4">Contact</h3>
             <hr class="title-under">
-            <p style="" class="gray--text">Email: irori@gmail.com</p>
+            <p style="" class="gray--text">Email: eureka@gmail.com</p>
             <p style="" class="gray--text">or</p>
             <p style="" class="gray--text">↓ From icons ↓</p>
           </div>
