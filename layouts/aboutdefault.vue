@@ -4,7 +4,6 @@
       <v-container fluid class="pa-0 ma-0">
         <Header/>
         <nuxt />
-        <Footer/>
       </v-container>
     </v-main>
   </v-app>
@@ -12,12 +11,8 @@
 
 <script>
 import Header from '@/components/Header'
-import Footer from '@/components/Footer'
 
 export default {
-  components: { Header, Footer }
+  components: { Header }
 }
 </script>
-
-<style>
-</style>

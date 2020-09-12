@@ -1,93 +1,100 @@
 <template>
-  <v-container fluid ma-0 pa-0>
-    <v-container fluid class="pa-0 ma-0">
-      <v-img
-      class="main-img"
-      style=""
-      src = "https://crownscaffold.com.au/wp-content/uploads/2018/08/beach-dawn-dusk-1144176.jpg"
-      >
-        <v-container>
-        <header>
-          <v-row nav dence class="nav d-flex flex-row-reverse mx-2">
-            <nuxt-link to="/posts/PostList" class="items white--text">Articles</nuxt-link>
-            <nuxt-link to="/" class="items white--text text-center">Home</nuxt-link>
-          </v-row>
-          <nuxt-link to="/">
-            <h1 class="title white--text">【 Eureka 】</h1>
-          </nuxt-link>  
-        </header>
-      </v-container>
-      </v-img>
-      <section>
-        <v-container class="profile mt-8">
-          <div justify="center">
-            <h1 style="color: #69F0AE;" class="text--center my-4">Keita Fujino</h1>
-            <hr class="title-under-name">
-            <p style="" class="gray--text">Live in Iwate</p>
-            <h3 style="color: #69F0AE;" class="text--center my-4">Job</h3>
-            <hr class="title-under">
-            <p style="" class="gray--text">Civil servant in Iwate (2014~)</p>
-            <h3 style="color: #69F0AE;" class="text--center my-4">Education</h3>
-            <hr class="title-under">
-            <p style="" class="gray--text">Graduate from Senmaya high School (2010)</p>
-            <p style="" class="gray--text">Graduate from Iwate University (2014)</p>
-            <h3 style="color: #69F0AE;" class="text--center my-4">Contact</h3>
-            <hr class="title-under">
-            <p style="" class="gray--text">Email: eureka@gmail.com</p>
-            <p style="" class="gray--text">or</p>
-            <p style="" class="gray--text">↓ From icons ↓</p>
-          </div>
-        </v-container>
+  <section id="blog">
+    <v-container fluid class="">
+      <section id="blog-title" class="blog-title">
+        <h2><span>B</span>log</h2>
+      </section>
+      <section id="blog-contents">
+        <v-row dense class="postlist mx-6 justify-center">
+          <post-card v-for="(post, index) in posts" :key="index" :post="post"/>
+        </v-row>
       </section>
     </v-container>
-  </v-container>
+  </section>
 </template>
 
 <script>
+import PostCard from '@/components/PostCard.vue'
+// import { createClient } from '@/plugins/contentful.js'　←削除の代わりにコメントアウト
+// const client = createClient() ←削除の代わりにコメントアウト
+
+import { mapState, mapGetters } from 'vuex'
+
 export default {
+  components: { PostCard },
+  computed: {
+    ...mapState(['posts'])
+  },
+  //　以下、コメントアウトで備忘のため残す
+	//async asyncData({ env }) {
+  //  let posts = []
+  //  await client.getEntries({
+  //    content_type: env.CTF_BLOG_POST_TYPE_ID,
+  //    order: "-fields.date"
+  //  }).then((response) => {
+  //    posts=response.items
+  //  }).catch(console.error)
+  //  return { posts }
+  //}
+  head () {
+		return {
+			link: [
+				{
+					rel: 'stylesheet',
+					href:'https://fonts.googleapis.com/css?family=Oswald:700'}
+			]
+		}
+	}
 }
 </script>
 
 <style>
-.items {
-  margin-left: 12px;
-  background-color: rgba(255,255,255,0);
+.blog-title {
+  padding-bottom: 1rem;
+  font-family: 'Oswald', sans-serif;
+  margin-left: 50px;
+  margin-right: 50px;
 }
-a {
-  text-decoration: none;
+.blog-title > h2 {
+  position: relative;
+  padding: 10rem 2rem 0rem 105px;
+  /*border-bottom: 3px solid #ffffff;*/
+  font-size: 3rem;
 }
-.logo {
-  text-decoration: none;
+h2 span {
+  font-family: 'Oswald', sans-serif;
+  font-size: 100px;
+  font-size: 10rem;
+  line-height: 1;
+  position: absolute;
+  bottom: -1.6rem;
+  left: 0;
+  padding-left: 15px;
 }
-.profile {
-  text-align: center;
-}
-.title-under{
-  border: #69F0AE solid 1px;
-  width: 35px;
-  margin: 0 auto;
-  margin-bottom: 15px;
-}
-.title-under-name {
-  border: #69F0AE solid 1px;
-  width: 300px;
-  margin: 0 auto;
-  margin-bottom: 15px;
-}
-/* 600px以下の時*/
-@media (max-width: 600px) {
+/* 1100px以下の時*/
+@media (max-width: 1100px) {
+  .blog-title {
+    padding-bottom: 1rem;
+    font-family: 'Oswald', sans-serif;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
   .main-img {
-    height: 200px;
+    height: 350px;
     width: 100%;
   }
-  .post-main {
+  .postlist {
     margin: 0 auto;
   }
 }
-/* 600px以上の時*/
-@media (min-width: 601px) {
+/* 1100px以上の時*/
+@media (min-width: 1101px) {
   .main-img {
-    height: 400px;
+    height: 350px;
+  }
+  .postlist {
+    margin-right: 150px;
+    margin-left: 150px;
   }
 }
 </style>

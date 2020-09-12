@@ -27,7 +27,7 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon1.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon1.png' }
     ]
   },
   /*
@@ -59,7 +59,8 @@ export default {
   */
   modules: [
     '@nuxtjs/markdownit',
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    '@nuxtjs/style-resources'
   ],
   markdownit: {
     injected: true,
@@ -73,7 +74,7 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,/*ダークモードを常時適用の時は「true」にする。*/
       themes: {
         dark: {
           primary: colors.blue.darken2,
@@ -117,5 +118,10 @@ export default {
         })
       ];
     }
+  },
+  styleResources: {
+    scss: [
+      '~assets/styles/_var.scss'
+    ]
   }
 }

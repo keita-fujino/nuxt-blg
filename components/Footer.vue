@@ -11,11 +11,11 @@
           icon
         >
         <a class="link" :href="icon.href">
-          <v-icon class="mark" size="24px" color="#69F0AE">{{ icon.icon }}</v-icon>
+          <v-icon class="mark black--text" size="24px">{{ icon.icon }}</v-icon>
         </a>
         </v-btn></li>
     </ul>
-    <nuxt-link to="/" class="copy-right white--text text-center">© Eureka</nuxt-link>
+    <nuxt-link to="/" class="copy-right black--text text-center">© Wonder,Wander</nuxt-link>
   </footer>
 </template>
 
@@ -23,10 +23,10 @@
 export default {
   data: () => ({
     icons: [
-      { icon: 'mdi-facebook', href: '' },
-      { icon: 'mdi-twitter', href: '' },
+      // { icon: 'mdi-facebook', href: '' },
+      // { icon: 'mdi-twitter', href: '' },
       { icon: 'mdi-github', href: 'https://github.com/keita-fujino' },
-      { icon: 'mdi-instagram', href: '' }
+      // { icon: 'mdi-instagram', href: '' }
     ]
   })
 }
@@ -44,7 +44,7 @@ footer{
   text-decoration: none;
 }
 ul.footer-menu li {
-display: inline;
+  display: inline;
 }
 .mark {
   text-decoration: none;
