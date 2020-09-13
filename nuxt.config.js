@@ -70,14 +70,17 @@ export default {
   ],
   sitemap: {
     hostname: 'https://wander-wonder.netlify.app',
-    routes () {
-      return client
-      .getEntries({ content_type: 'post' })
-      .then(entries => {
-        return entries.items.map(entry =>{
-          return "/posts/" + entry.fields.slug
+    async routes () {
+      const [posts] = await Promise.all([
+        client.getEntries({
+          content_type: 'blog'
         })
-      })
+      ]);
+      return [
+        ...posts.items.map((post) => {
+          return { route: `post/${post.fields.slug}`, payload: post };
+        })
+      ];
     }
   },
   markdownit: {
