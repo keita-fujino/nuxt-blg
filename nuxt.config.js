@@ -80,7 +80,7 @@ export default {
       ]);
       return [
         ...posts.items.map((post) => {
-          return { route: `post/${post.fields.slug}`, payload: post };
+          return { route: `posts/${post.fields.slug}`, payload: post };
         })
       ];
     }
