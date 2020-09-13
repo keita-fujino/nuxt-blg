@@ -21,7 +21,7 @@ export default {
   head: {
     titleTemplate: '%s',
     // title: process.env.npm_package_name || '',
-    title: 'Wander, Wonder',
+    title: 'Wonder, Woader',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -71,18 +71,15 @@ export default {
   ],
   sitemap: {
     path: '/sitemap.xml',
-    hostname: 'https://wander-wonder.netlify.app',
-    async routes () {
-      const [posts] = await Promise.all([
-        client.getEntries({
-          content_type: 'blog'
+    hostname: 'https://wonder-wander.netlify.app',
+    routes() {
+      return client
+      .getEntries({ content_type: 'blog' })
+      .then(entries => {
+        return entries.items.map(post => {
+          return "/posts/" + post.fields.slug
         })
-      ]);
-      return [
-        ...posts.items.map((post) => {
-          return { route: `posts/${post.fields.slug}`, payload: post };
-        })
-      ];
+      })
     }
   },
   markdownit: {
@@ -137,7 +134,7 @@ export default {
       ]);
       return [
         ...posts.items.map((post) => {
-          return { route: `post/${post.fields.slug}`, payload: post };
+          return { route: `posts/${post.fields.slug}`, payload: post };
         })
       ];
     }
