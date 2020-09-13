@@ -2,8 +2,8 @@
 	<v-container fluid class="header mb-4">
 		<header>
 			<v-row nav dence class="nav d-flex flex-row-reverse mx-2">
-				<nuxt-link to="/about" class="items black--text">About</nuxt-link>
 				<nuxt-link to="/" class="items black--text text-center">Blog</nuxt-link>
+				<nuxt-link to="/about" class="items black--text">About</nuxt-link>
 			</v-row>
 				<nuxt-link to="/" class="items black--text">
 				  <h1 class="blog-name black--text pb-1">Wonder,Wander</h1>
