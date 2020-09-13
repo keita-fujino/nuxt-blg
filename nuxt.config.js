@@ -70,6 +70,7 @@ export default {
     }]
   ],
   sitemap: {
+    path: '/sitemap.xml',
     hostname: 'https://wander-wonder.netlify.app',
     async routes () {
       const [posts] = await Promise.all([
