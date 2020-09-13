@@ -46,4 +46,17 @@ a {
 .nav {
 	font-size: 20px;
 }
+/* 1100px以下の時*/
+@media (max-width: 1100px) {
+	.header {
+		position: fixed;
+		padding: 28px 20px 28px 20px;
+		z-index: 1;
+		font-family: 'Oswald', sans-serif;
+	}
+}
+/* 1100px以上の時*/
+@media (min-width: 1101px) {
+}
+
 </style>

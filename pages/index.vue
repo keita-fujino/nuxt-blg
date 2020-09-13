@@ -54,17 +54,19 @@ export default {
   font-family: 'Oswald', sans-serif;
   margin-left: 50px;
   margin-right: 50px;
+  text-align: center;
 }
 .blog-title > h2 {
   position: relative;
-  padding: 10rem 2rem 0rem 105px;
+  padding: 10rem 2rem 0rem 100px;
   /*border-bottom: 3px solid #ffffff;*/
   font-size: 3rem;
+  text-align: center;
+  display: inline-block;
 }
 h2 span {
   font-family: 'Oswald', sans-serif;
-  font-size: 100px;
-  font-size: 10rem;
+  font-size: 9rem;
   line-height: 1;
   position: absolute;
   bottom: -1.6rem;

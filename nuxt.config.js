@@ -19,7 +19,7 @@ export default {
   ** See https://nuxtjs.org/api/configuration-head
   */
   head: {
-    titleTemplate: '%s - ' + process.env.npm_package_name,
+    titleTemplate: '%s',
     // title: process.env.npm_package_name || '',
     title: 'Wander, Wonder',
     meta: [
@@ -42,7 +42,8 @@ export default {
   */
   plugins: [
     '@/plugins/utils.js',
-    '@/plugins/contentful'
+    '@/plugins/contentful',
+    '@/plugins/prism'
   ],
   /*
   ** Auto import components
@@ -61,7 +62,10 @@ export default {
   modules: [
     '@nuxtjs/markdownit',
     '@nuxtjs/dotenv',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    //['@nuxtjs/google-analytics', {
+    //  id: 'UA-'
+    //}]
   ],
   markdownit: {
     injected: true,

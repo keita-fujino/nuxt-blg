@@ -7,7 +7,7 @@
     >
       <v-container class="profile pa-6">
         <section id="blog-title" class="about-title">
-          <h2 class=""><span>A</span>bout</h2>
+          <h2><span>A</span>bout</h2>
         </section>
         <div justify="center">
           <h1 style="" class="gray--text text--center my-4">Keita</h1>
@@ -113,19 +113,20 @@ a {
 }
 .about-title > h2 {
   position: relative;
-  padding: 3rem 2rem 0rem 105px;
+  padding: 4rem 2rem 0rem 95px;
   font-size: 3rem;
-  text-align: left;
+  text-align: center;
+  display: inline-block;
 }
 h2 span {
   font-family: 'Oswald', sans-serif;
-  font-size: 100px;
-  font-size: 10rem;
+  font-size: 9rem;
   line-height: 1;
   position: absolute;
   bottom: 0.2rem;
   left: 0;
   padding-left: 15px;
+  text-align: center;
 }
 /* 1100px以下の時*/
 @media (max-width: 1100px) {
@@ -144,8 +145,7 @@ h2 span {
     height: 100%;
     /*height: 400px;*/
     margin: 0 auto;
-    position: fixed;
-
+    height: 100%;
   }
 }
 </style>

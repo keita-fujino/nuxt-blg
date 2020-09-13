@@ -11,12 +11,13 @@
       <section class="post-sub">
         <h1 class="post-title black--text">{{ post.fields.title }}</h1>
         <div>{{ $getFormattedDate(post.fields.date) }}</div>
+        <v-card-subtitle class="category gray--text ml-4 pl-8 pr-1 py-1">{{ post.fields.category }}</v-card-subtitle>
         <br>
         <div>{{ post.fields.description}}</div>
       </section>
     </section>
     <hr class="divider my-5">
-    <div class="md-body" v-html="$md.render(post.fields.body)"></div>
+    <div class="md-body line-numbers" v-html="$md.render(post.fields.body)"></div>
     <hr class="divider my-5">
   </v-container>
 </template>
@@ -56,8 +57,23 @@ export default {
       return error ({ statusCode: '404', message: 'お探しのページは見つかりませんでした'})
     }
   },
+  mounted () {
+    Prism.highlightAll()
+  },
   head () {
 		return {
+      title: this.post.fields.title,
+      meta: [
+        {hid: 'body', name: 'body', content: this.post.fields.body},
+        {hid: 'og:site_name', property: 'og:site_name', content: this.post.fields.title + ' - Wander, Wonder'},
+        {hid: 'og:type', property: 'og:type', content: 'website'},
+        { hid: 'og:url', property: 'og:url', content: 'https://wander-wonder.netlify.app/posts/' + this.post.fields.slug },
+        {hid: 'og:title', property: 'og:title', content: this.post.fields.title},
+        {hid:'og:description', property: 'og:description', content: this.post.fields.description},
+        {hid: 'og:thumbnail', property: 'og:thumbnail', content: "https:" + this.post.fields.thumbnail.fields.file.url},
+        {hid: 'twitter:card', name: 'twitter:card', content: "summary"},
+        {hid: 'twitter:site', name: 'twitter:site', content: ""}
+      ],
 			link: [
 				{
 					rel: 'stylesheet',
@@ -81,6 +97,10 @@ a {
 }
 img {
 	width: 100%;
+}
+.post-sub > .category {
+  top: 50px;
+  color: black;
 }
 /* 1100px以下の時*/
 @media (max-width: 1100px) {
@@ -133,13 +153,19 @@ img {
 .md-body > h1 {
   padding: 5px 5px;
   border-left: 2px solid aquamarine;
+  display: inline-block;
 }
 .md-body > h1:first-letter {
-  font-size: 200%;
+  font-size: 150%;
   color: aquamarine;
 }
 .md-body > h2 {
   border-left: 2px solid aquamarine;
 }
-
+.md-body > h3 {
+  border-bottom: 2px solid aquamarine;
+}
+.md-body > p {
+  font-size: 20px;
+}
 </style>
