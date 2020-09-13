@@ -63,10 +63,23 @@ export default {
     '@nuxtjs/markdownit',
     '@nuxtjs/dotenv',
     '@nuxtjs/style-resources',
-    //['@nuxtjs/google-analytics', {
-    //  id: 'UA-'
-    //}]
+    '@nuxtjs/sitemap',
+    ['@nuxtjs/google-analytics', {
+      id: 'UA-177843302-1'
+    }]
   ],
+  sitemap: {
+    hostname: 'https://wander-wonder.netlify.app',
+    routes () {
+      return client
+      .getEntries({ content_type: 'post' })
+      .then(entries => {
+        return entries.items.map(entry =>{
+          return "/posts/" + entry.fields.slug
+        })
+      })
+    }
+  },
   markdownit: {
     injected: true,
     breaks: true,
