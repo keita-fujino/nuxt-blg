@@ -121,11 +121,14 @@ export default {
     CTF_BLOG_POST_TYPE_ID: process.env.CTF_BLOG_POST_TYPE_ID
   },
   router: {
+    trailingSlash: true,
     middleware: [
-      'getContentful'
+      'getContentful',
+      'redirect'
     ]
   },
   generate: {
+    path: '/sitemap.xml/',
     async routes () {
       const [posts] = await Promise.all([
         client.getEntries({

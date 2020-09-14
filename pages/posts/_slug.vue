@@ -65,9 +65,9 @@ export default {
       title: this.post.fields.title,
       meta: [
         {hid: 'body', name: 'body', content: this.post.fields.body},
-        {hid: 'og:site_name', property: 'og:site_name', content: this.post.fields.title + ' - Wander, Wonder'},
+        {hid: 'og:site_name', property: 'og:site_name', content: this.post.fields.title + ' - Wonder, Wander'},
         {hid: 'og:type', property: 'og:type', content: 'website'},
-        { hid: 'og:url', property: 'og:url', content: 'https://wander-wonder.netlify.app/posts/' + this.post.fields.slug },
+        { hid: 'og:url', property: 'og:url', content: 'https://wonder-wander.netlify.app/posts/' + this.post.fields.slug },
         {hid: 'og:title', property: 'og:title', content: this.post.fields.title},
         {hid:'og:description', property: 'og:description', content: this.post.fields.description},
         {hid: 'og:thumbnail', property: 'og:thumbnail', content: "https:" + this.post.fields.thumbnail.fields.file.url},
