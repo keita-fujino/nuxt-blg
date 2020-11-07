@@ -4,18 +4,24 @@
       <v-img
       class="main-img"
       style=""
-      max-width=""
       :src="post.fields.thumbnail.fields.file.url"
       >
       </v-img>
-      <section class="post-sub">
-        <h1 class="post-title black--text">{{ post.fields.title }}</h1>
+      <div class="post-sub">
+        <h1 class="post-title">{{ post.fields.title }}</h1>
         <div>{{ $getFormattedDate(post.fields.date) }}</div>
-        <v-card-subtitle class="category gray--text ml-4 pl-8 pr-1 py-1">{{ post.fields.category }}</v-card-subtitle>
+        <div 
+				v-for="category in post.fields.category"
+				:key="category.sys.id"
+				class="post-category ml-2">
+				  # {{ category.fields.name }}
+				</div>
         <br>
         <div>{{ post.fields.description}}</div>
-      </section>
+      </div>
     </section>
+    <hr class="divider my-5">
+    <!--後からここに、TOC追加する予定（markdownit系のファイルはコピペで作成済み）-->
     <hr class="divider my-5">
     <div class="md-body line-numbers" v-html="$md.render(post.fields.body)"></div>
     <hr class="divider my-5">
@@ -73,18 +79,16 @@ export default {
         {hid: 'og:thumbnail', property: 'og:thumbnail', content: "https:" + this.post.fields.thumbnail.fields.file.url},
         {hid: 'twitter:card', name: 'twitter:card', content: "summary"},
         {hid: 'twitter:site', name: 'twitter:site', content: ""}
-      ],
-			link: [
-				{
-					rel: 'stylesheet',
-					href:'https://fonts.googleapis.com/css?family=Oswald:700'}
-			]
+      ]
 		}
 	}
 }
 </script>
 
 <style>
+.post-content {
+  margin-top: 80px;
+}
 .items {
   margin-left: 12px;
   background-color: rgba(255,255,255,0);
@@ -95,77 +99,78 @@ a {
 .logo {
   text-decoration: none;
 }
-img {
-	width: 100%;
+.top-info {
+  position: relative;
 }
-.post-sub > .category {
-  top: 50px;
-  color: black;
+.post-sub {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 35%;
+  color: #ffffff;
+}
+.post-sub > .post-title {
+  color: #ffffff;
+}
+.post-sub > .post-category {
+  display: inline-block;
+  color: #ffffff;
 }
 /* 1100px以下の時*/
 @media (max-width: 1100px) {
+  .post-content {
+    margin-top: 80px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
   .main-img {
-    position: relative;
     width: 100%;
     height: 350px;
   }
   .post-sub {
-    position: absolute;
-    background-color: #ffffff;
-    height: 186px;
-    width: 300px;
-    top: 176px;
   }
 }
 /* 1100px以上の時*/
 @media (min-width: 1101px) {
   .top-info {
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 150px;
+    margin-right: 150px;
   }
   .main-img {
-    margin-left: auto;
-    width: 400px;
-    height: 600px;
-    margin-right: 100px;
+    width: 100%;
+    height: auto;
   }
   .md-body {
-    font-family: 'Oswald', sans-serif;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 150px;
+    margin-right: 150px;
   }
   .post-content {
-    padding-top: 148px;
   }
   .post-sub {
-    position: absolute;
-    background-color: #ffffff;
-    height: 200px;
-    width: 400px;
-    margin-left: 100px;
-    top: 298px;
   }
 }
 /*markdown-it内のスタイル適用*/
 .md-body {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Montserrat','Noto Sans','Open Sans','Roboto',sans-serif;
 }
 .md-body > h1 {
+  font-size: 22px;
   padding: 5px 5px;
-  border-left: 2px solid aquamarine;
   display: inline-block;
 }
 .md-body > h1:first-letter {
-  font-size: 150%;
-  color: aquamarine;
+  font-size: 130%;
+  color: #80DEEA;
 }
 .md-body > h2 {
-  border-left: 2px solid aquamarine;
+  font-size: 18px;
 }
 .md-body > h3 {
-  border-bottom: 2px solid aquamarine;
+  font-size: 16px;
+  border-bottom: 2px solid #80DEEA;
 }
 .md-body > p {
-  font-size: 20px;
+  line-height: 200%;
+  font-size: 14px;
 }
 </style>

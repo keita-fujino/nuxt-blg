@@ -21,7 +21,7 @@ export default {
   head: {
     titleTemplate: '%s',
     // title: process.env.npm_package_name || '',
-    title: 'Wonder, Wander',
+    title: 'Self Update.',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -44,7 +44,7 @@ export default {
   plugins: [
     '@/plugins/utils.js',
     '@/plugins/contentful',
-    '@/plugins/prism'
+    '@/plugins/prism',
   ],
   /*
   ** Auto import components
@@ -65,13 +65,19 @@ export default {
     '@nuxtjs/dotenv',
     '@nuxtjs/style-resources',
     '@nuxtjs/sitemap',
+    'nuxt-webfontloader',
     ['@nuxtjs/google-analytics', {
       id: 'UA-177843302-1'
     }]
   ],
+  webfontloader: {
+    google: {
+      families: ['Montserrat&family=Noto+Sans&family=Open+Sans&family=Roboto&display=swap'] 
+    }
+  },
   sitemap: {
     path: '/sitemap.xml',
-    hostname: 'https://wonder-wander.netlify.app',
+    hostname: 'https://self-update.netlify.app',
     routes() {
       return client
       .getEntries({ content_type: 'blog' })

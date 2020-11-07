@@ -1,59 +1,57 @@
 <template>
-	<v-container fluid class="header mb-4">
 		<header>
-			<v-row nav dence class="nav d-flex flex-row-reverse mx-2">
-				<nuxt-link to="/" class="items black--text text-center">Blog</nuxt-link>
-				<nuxt-link to="/about" class="items black--text">About</nuxt-link>
-			</v-row>
-				<nuxt-link to="/" class="items black--text">
-				  <h1 class="blog-name black--text pb-1">Wonder,Wander</h1>
-				</nuxt-link>
+      <v-app-bar
+        absolute
+				color="#FFFFFF"
+				height="80px"
+				width="100%"
+				elevation=0
+				hide-on-scroll
+				>
+				<nuxt-link to="/" class="title black--text">Self Update.</nuxt-link>
+				<v-spacer></v-spacer>
+					<nuxt-link to="/" class="items black--text">Blog</nuxt-link>
+					<nuxt-link to="/search" class="items black--text">Search</nuxt-link>
+			</v-app-bar>
 		</header>
-	</v-container>
 </template>
 
 <script>
 export default {
-	head () {
-		return {
-			link: [
-				{
-					rel: 'stylesheet',
-					href:'https://fonts.googleapis.com/css?family=Oswald:700'}
-			]
-		}
-	}
 }
 </script>
 
 <style>
 .header {
 	position: fixed;
-	padding: 28px 100px 28px 100px;
-	z-index: 1;
-	font-family: 'Oswald', sans-serif;
+	padding: 50px 100px 50px 100px;
+  font-family: 'Montserrat','Noto Sans','Open Sans','Roboto',sans-serif;
+	background-color: #ffffff;
+	color:#2b2b2b;
+}
+.title {
+	font-size: 35px;
+	font-weight: bold;
+	margin-left: 12px;
+	margin-right: 5px;
+  background-color: rgba(255,255,255,0);
+	vertical-align: middle;
+
 }
 .items {
   margin-left: 12px;
+	margin-right: 5px;
   background-color: rgba(255,255,255,0);
+	vertical-align: middle;
 }
 a {
   text-decoration: none;
-}
-.blog-name {
-  display: inline-block;
 }
 .nav {
 	font-size: 20px;
 }
 /* 1100px以下の時*/
 @media (max-width: 1100px) {
-	.header {
-		position: fixed;
-		padding: 28px 20px 28px 20px;
-		z-index: 1;
-		font-family: 'Oswald', sans-serif;
-	}
 }
 /* 1100px以上の時*/
 @media (min-width: 1101px) {

@@ -1,0 +1,2 @@
+Nuxt.jsで作成したブログのカテゴリー設定および検索機能、タグの設定について記載あり
+→https://blog.cloud-acct.com/categories/myblog/
