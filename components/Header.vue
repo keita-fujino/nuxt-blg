@@ -8,7 +8,7 @@
 				elevation=0
 				hide-on-scroll
 				>
-				<nuxt-link to="/" class="title black--text">Self Update.</nuxt-link>
+				<nuxt-link to="/" class="title black--text">Self Update</nuxt-link>
 				<v-spacer></v-spacer>
 					<nuxt-link to="/" class="items black--text">Blog</nuxt-link>
 					<nuxt-link to="/search" class="items black--text">Search</nuxt-link>

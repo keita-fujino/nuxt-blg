@@ -3,15 +3,20 @@
       <v-container>
           <v-card
           class="profile-card"
-          width="250px"
+          width="280px"
+          outlined
           flat
           >
+          <div class="plof">
+            <p>Profile</p>
+          </div>
           <v-card-title class="name pd-5 justify-center">
-            けいちゃん
+            <p>けいちゃん</p>
           </v-card-title>
           <v-row justify="center">
             <v-col cols="12" sm="12" md="12" align="center">
               <v-row
+              class="avatar-space"
               justify="space-around"
               style="height:100%"
               >
@@ -25,7 +30,7 @@
             </v-col>
             <v-col cols="12" sm="12" md="12">
             <div class="explanation">
-              地方在住のアラウンド30の男子です。アラサーを意識しはじめ、人生何か変えないと、と思い作ったブログです。プログラミングを勉強して技術ブログっぽくすることと、働き方に納得し、転職することが当面の目標です。ちなみに彼女募集中です。勉強は、Pythonを中心に頑張ろうと思います。このブログはNuxt.jsで作ったけど。
+              地方在住のアラウンド30の男子です。アラサーを意識しはじめ、「人生何か変えないといけない」と思い、作ったブログです。プログラミングを勉強して技術ブログっぽくすることと、働き方に納得し、転職することが当面の目標です。勉強は、Pythonを中心に頑張ろうと思います。このブログはNuxt.jsで作ったけど。ちなみに彼女募集中です（笑）。
             </div>
             </v-col>
           </v-row>
@@ -42,6 +47,11 @@ export default {}
 .profile {
   width: 100%;
 }
+.plof {
+  text-align: center;
+  font-size: 16px;
+  margin-top: 20px;
+}
 .profile-card {
   margin: 0 auto;
 }
@@ -51,6 +61,10 @@ export default {}
 }
 .explanation {
   font-size: 14px;
+  margin: 18px;
+}
+.avatar-space {
+  width: 270px;
 }
 /* 1100px以下の時*/
 @media (max-width: 1100px) {

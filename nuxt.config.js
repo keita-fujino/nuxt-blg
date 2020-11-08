@@ -29,7 +29,7 @@ export default {
       { hid: 'google-site-verification', name: 'google-site-verification', content: 'OgO9qwM2XY0qY5xaUMHmOlBtHCl6mI-bK052Sw_C60A'}
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon1.png' }
+      { rel: 'icon', type: 'image/x-icon', href: '/self-update-logo.png' }
     ]
   },
   /*

@@ -70,15 +70,10 @@
                 </v-list-item>
               </template>
               <template v-else>
-                <v-list-item class="message justify-center">
-                  <div class="text-center">
-                    <p>キーワードが入力されていないか</p>
-                    <p>または</p>
-                    <p>キーワードに一致する投稿がありません。</p>
-                    <v-icon>
-                      mdi-emoticon-cry-outline
-                    </v-icon>
-                  </div>
+                <v-list-item>
+                  <v-list-item-content>
+                    <v-list-item>キーワードが入力されていない、または、キーワードに一致する投稿がありません。</v-list-item>
+                  </v-list-item-content>
                 </v-list-item>
               </template>
             </v-list>
@@ -143,6 +138,9 @@ export default {
 }
 .message {
 }
+.text-center {
+  text-align: center;
+}
 @media (max-width: 1100px) {
 }
 @media (min-width: 1101px) {
@@ -151,6 +149,9 @@ export default {
     margin-left: 388px;
     margin-right: 388px;
   }
-
+  .message {
+    margin-left: 388px;
+    margin-right: 388px;
+  }
 }
 </style>
