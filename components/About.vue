@@ -20,11 +20,12 @@
               justify="space-around"
               style="height:100%"
               >
-                <v-avatar class="avatar" width="150px" height="150px">
-                  <img
+                <v-avatar class="avatar" height="150px" width="150px">
+                  <v-img
+                    class="plof-img"
                     src="/profileimg.png"
                     alt="PROFILE"
-                  >
+                  />
                 </v-avatar>
               </v-row>
             </v-col>
@@ -66,6 +67,7 @@ export default {}
 .avatar-space {
   width: 270px;
 }
+
 /* 1100px以下の時*/
 @media (max-width: 1100px) {
 }

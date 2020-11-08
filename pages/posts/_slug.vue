@@ -17,7 +17,7 @@
 				  # {{ category.fields.name }}
 				</div>
         <br>
-        <div>{{ post.fields.description}}</div>
+        <div class="description">{{ post.fields.description}}</div>
       </div>
     </section>
     <hr class="divider my-5">
@@ -111,6 +111,7 @@ a {
 }
 .post-sub > .post-title {
   color: #ffffff;
+  font-size: 18px;
 }
 .post-sub > .post-category {
   display: inline-block;
@@ -127,7 +128,21 @@ a {
     width: 100%;
     height: 350px;
   }
-  .post-sub {
+  .post-sub > .post-title {
+    color: #ffffff;
+    font-size: 18px;
+  }
+  .post-sub > .post-category {
+    display: inline-block;
+    color: #ffffff;
+    font-size: 12px;
+  }
+  .description {
+    font-size: 12px;
+  }
+  img {
+    width: 339px;
+    height: 220px;
   }
 }
 /* 1100px以上の時*/
@@ -144,9 +159,13 @@ a {
     margin-left: 150px;
     margin-right: 150px;
   }
-  .post-content {
+  img {
+    width: 100%;
+    height: 550px;
+    text-align: center;
+    padding: 45px;
   }
-  .post-sub {
+  .post-content {
   }
 }
 /*markdown-it内のスタイル適用*/
@@ -172,8 +191,5 @@ a {
 .md-body > p {
   line-height: 200%;
   font-size: 14px;
-}
-.md-body > img {
-  width: 100%;
 }
 </style>
