@@ -173,4 +173,7 @@ a {
   line-height: 200%;
   font-size: 14px;
 }
+.md-body > img {
+  width: 100%;
+}
 </style>
