@@ -161,7 +161,7 @@ a {
   }
   img {
     width: 100%;
-    height: 550px;
+    height: auto;
     text-align: center;
     padding: 45px;
   }
