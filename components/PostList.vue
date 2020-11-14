@@ -5,7 +5,7 @@
 			<div class="post-contents">
 				<nuxt-link :to="linkTo('posts', post)" class="post">
 					<v-card-title class="post-title pt-1 pb-0 pl-0 pr-0 mr-0">
-						<div class="post-title">{{ post.fields.title }}</div>
+						<div class="post-title">#{{post.fields.slug}} {{ post.fields.title }}</div>
 					</v-card-title>
 				</nuxt-link>
 				<div class="date">
