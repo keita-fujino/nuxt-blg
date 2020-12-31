@@ -1,0 +1,38 @@
+export default {
+  data() {
+    return {
+      query: '',
+      posts: [],
+      loading: false,
+    }
+  },
+  computed: {
+    isRequired() {
+      return !!this.query && !/^\s+$/.test(this.query)
+    }
+  },
+  watch: {
+    '$route.query.q': {
+      handler(newVal) {
+        this.query = newVal
+        this.getPosts()
+      },
+      immediate: true
+    }
+  },
+  methods: {
+    async getPosts() {
+      if (this.isRequired) {
+        this.loading = true
+        await client.getEntries({
+          content_type: process.env.CTF_BLOG_POST_TYPE_ID,
+          query: this.query
+        })
+          .then(({ items }) => (this.posts = items))
+          .catch(console.error)
+        this.loading = false
+      }
+    }
+  }
+}
+</script>

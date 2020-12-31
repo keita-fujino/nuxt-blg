@@ -128,7 +128,7 @@ export default {
 
 <style scoped>
 .searchresult {
-	margin-top: 80px;
+  padding-top: 60px;
 }
 .title {
   font-size:20px;
@@ -143,11 +143,11 @@ export default {
 }
 @media (max-width: 1100px) {
 }
+/* 1100px以上の時*/
 @media (min-width: 1101px) {
   .searchresult {
-	  margin-top: 80px;
-    margin-left: 388px;
-    margin-right: 388px;
+    margin-left: 30%;
+    width: 70%;
   }
   .message {
     margin-left: 388px;

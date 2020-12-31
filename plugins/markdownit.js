@@ -2,12 +2,7 @@ import MarkdownIt from 'markdown-it'
 
 export default ({ app }, inject ) => {
 
-    const md = new MarkdownIt({
-			html: true,
-			linkify: true,
-			typography: true,
-		})
-		
+	
 		const defaultRender = md.renderer.rules.link_open || function (tokens, idx, options, env, self) {
 			return self.renderToken(tokens, idx, options)
 		}

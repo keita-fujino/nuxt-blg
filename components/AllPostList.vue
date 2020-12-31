@@ -1,5 +1,5 @@
 <template>
-	<v-col class="pb-2 mx-auto justify-center" cols="12" xs="12" sm="6" md="5" lg="3" xl="3">
+	<v-col class="pb-2 mx-auto justify-center" cols="12" xs="12" sm="6" md="5" lg="4" xl="4">
 		<v-card
 			class="mx-1"
 			height="500"

@@ -21,7 +21,7 @@ export default {
   head: {
     titleTemplate: '%s',
     // title: process.env.npm_package_name || '',
-    title: 'Self Update.',
+    title: 'Fujinote',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -29,7 +29,8 @@ export default {
       { hid: 'google-site-verification', name: 'google-site-verification', content: 'OgO9qwM2XY0qY5xaUMHmOlBtHCl6mI-bK052Sw_C60A'}
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/self-update-logo.png' }
+      { rel: 'icon', type: 'image/x-icon', href: '/fujinotefavicon.png' },
+      { rel: "stylesheet", href:"https://use.fontawesome.com/releases/v5.6.1/css/all.css"}
     ]
   },
   /*
@@ -45,6 +46,8 @@ export default {
     '@/plugins/utils.js',
     '@/plugins/contentful',
     '@/plugins/prism',
+    '@/plugins/vue-scrollto',
+    { src: '@/plugins/vue-sidebar-menu', mode: 'client' },
   ],
   /*
   ** Auto import components
@@ -61,8 +64,8 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    '@nuxtjs/markdownit',
     '@nuxtjs/dotenv',
+    '@nuxtjs/markdownit',
     '@nuxtjs/style-resources',
     '@nuxtjs/sitemap',
     'nuxt-webfontloader',
@@ -90,8 +93,16 @@ export default {
   },
   markdownit: {
     injected: true,
-    breaks: true,
-    html: true
+    html: true,
+    linkify: true,
+    typography: true,
+    use: [
+      ['markdown-it-table-of-contents', {
+        includeLevel: [1, 2, 3], // h2, h3を目次として表示する
+        containerHeaderHtml: '<div class="toc-container-header">【Contents】</div>' // 目次の見出しの内容を設定する
+      }],
+      'markdown-it-anchor'  // 見出し内部リンク
+    ]
   },
   /*
   ** vuetify module configuration

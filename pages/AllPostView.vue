@@ -1,12 +1,9 @@
 <template>
   <section>
-    <section class="hero">
-      <hero/>
-    </section>
     <section id="blog">
       <v-container fluid class="">
         <section id="blog-title" class="blog-title">
-          <p>Blog (Latest 3 posts)</p>
+          <p>Blog</p>
         </section>
 
         <!-- トップ画面からの検索は後ほど⇒それまでは、検索ページへ
@@ -18,25 +15,27 @@
         -->
         <section id="blog-contents">
           <v-row dense v-if="posts.length" class="postlist">
-            <post-list v-for="(post, index) in displayLists" :key="index" :post="post"/>
+            <all-post-list v-for="(post, index) in displayLists" :key="index" :post="post"/>
           </v-row>
         </section>
 
-        <div class="box17 text-center">
-          <nuxt-link to="/allpostview" class="allpostview black--text">全ての記事を見る</nuxt-link>
+        <div class="text-center pagination">
+          <v-pagination
+            v-model="page"
+            :length="length"
+            color="#80DEEA"
+            @input = "pageChange"
+            :total-visible="7"
+          ></v-pagination>
         </div>
       </v-container>
-    </section>
-    <section id="about">
-      <about/>
     </section>
   </section>
 </template>
 
 <script>
-import Hero from '@/components/Hero'
 import About from '@/components/About'
-import PostList from "@/components/PostList.vue"
+import AllPostList from "@/components/AllPostList.vue"
 // import { createClient } from '@/plugins/contentful.js'　←削除の代わりにコメントアウト
 // const client = createClient() ←削除の代わりにコメントアウト
 import { mapState, mapGetters } from 'vuex'
@@ -64,7 +63,7 @@ export default {
       page: 1,
       length: 0,
       displayLists: [],
-      pageSize: 3
+      pageSize: 6
     }
   },
   mounted: function () {
@@ -90,7 +89,7 @@ export default {
   margin-right: 20px;
 }
 .blog-title > p {
-  font-size: 1.5rem;
+  font-size: 2rem;
   text-align: left;
   display: inline-block;
   font-style: italic;
@@ -102,7 +101,7 @@ export default {
 	vertical-align: middle;
 }
 .blog-logo {
-	margin-top: 80px;
+	margin-top: 20px;
 }
 .searchform {
   padding-bottom: 1rem;
@@ -113,38 +112,10 @@ export default {
   text-align: left;
   width: 781px;
 }
-
-.box17{
-  display: inline-block;
-  margin:2em 0;
-  position: relative;
-  padding: 0.5em 1.5em;
-  border-top: solid 2px rgb(82, 80, 80);
-  border-bottom: solid 2px rgb(82, 80, 80);
-  left: 45%;
-}
-.box17:before, .box17:after{
-  content: '';
-  position: absolute;
-  top: -10px;
-  width: 2px;
-  height: -webkit-calc(100% + 20px);
-  height: calc(100% + 20px);
-  background-color: rgb(82, 80, 80);
-}
-.box17:before {left: 10px;}
-.box17:after {right: 10px;}
-.box17 p {
-    margin: 0; 
-    padding: 0;
-}
-.allpostview {
-  color: black;
-}
 /* 1100px以下の時*/
 @media (max-width: 1100px) {
   .blog-title {
-    padding-top: 60px;
+    padding-top: 40px;
     padding-bottom: 1rem;
     font-family: 'Karla','Hiragino Kaku Gothic Pro',sans-serif;
     margin-left: 5px;
@@ -155,7 +126,7 @@ export default {
     margin: 0 auto;
   }
   .blog-title > p {
-    font-size: 10px;
+    font-size: 2rem;
     text-align: left;
     display: inline-block;
   }
@@ -173,15 +144,12 @@ export default {
     margin-left: 5px;
     margin-right: 5px;
     width: 341px;
-  }
-  .box17 {
-    left: 20%;
-  }
+  }  
 }
 /* 1100px以上の時*/
 @media (min-width: 1101px) {
   .blog-title, .blog-logo, .pagination {
-    margin-top: 40px;
+    margin-top: 20px;
   }
 }
 </style>

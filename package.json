@@ -15,11 +15,14 @@
     "@nuxtjs/sitemap": "^2.4.0",
     "contentful": "^7.14.6",
     "dotenv": "^8.2.0",
-    "markdown-it-anchor": "^6.0.0",
-    "markdown-it-table-of-contents": "^0.4.4",
+    "markdown-it": "^12.0.4",
+    "markdown-it-anchor": "^6.0.1",
+    "markdown-it-table-of-contents": "^0.5.1",
     "nuxt": "^2.14.0",
     "nuxt-webfontloader": "^1.1.0",
-    "prismjs": "^1.21.0"
+    "prismjs": "^1.21.0",
+    "vue-scrollto": "^2.20.0",
+    "vue-sidebar-menu": "^4.7.4"
   },
   "devDependencies": {
     "@nuxtjs/style-resources": "^1.0.0",

@@ -1,19 +1,26 @@
 <template>
-		<header>
-      <v-app-bar
-        absolute
-				color="#FFFFFF"
-				height="80px"
-				width="100%"
-				elevation=0
-				hide-on-scroll
-				>
-				<nuxt-link to="/" class="title black--text">Self Update</nuxt-link>
-				<v-spacer></v-spacer>
-					<nuxt-link to="/" class="items black--text">Blog</nuxt-link>
-					<nuxt-link to="/search" class="items black--text">Search</nuxt-link>
-			</v-app-bar>
-		</header>
+	<header>
+		<!--サイトロゴはここに配置-->
+		<h1>
+			<nuxt-link to="/" class="header-items black--text">
+				Fujinote
+			</nuxt-link>
+		</h1>
+		<nav>
+			<li>
+				<nuxt-link to="/" class="header-items black--text">Home</nuxt-link>
+			</li>
+			<li>
+				<nuxt-link v-scroll-to="'#blog'" to class="header-items black--text">Blog</nuxt-link>
+			</li>
+			<li>
+				<nuxt-link v-scroll-to="'#prof-title'" to class="header-items black--text">About</nuxt-link>
+			</li>
+			<li>
+				<nuxt-link to="" class="header-items black--text">Contacts</nuxt-link>
+			</li>
+		</nav>
+	</header>
 </template>
 
 <script>
@@ -22,39 +29,74 @@ export default {
 </script>
 
 <style>
-.header {
-	position: fixed;
-	padding: 50px 100px 50px 100px;
-  font-family: 'Montserrat','Noto Sans','Open Sans','Roboto',sans-serif;
-	background-color: #ffffff;
-	color:#2b2b2b;
-}
-.title {
-	font-size: 35px;
-	font-weight: bold;
-	margin-left: 12px;
-	margin-right: 5px;
-  background-color: rgba(255,255,255,0);
-	vertical-align: middle;
+/*-------------
+ 	Header
+-------------*/
 
+header {
+	top: 0;
+	left: 0;
+	z-index: 10;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: rgba(0, 0, 0, 0.2);
+	padding: 12px 100px;
 }
-.items {
-  margin-left: 12px;
-	margin-right: 5px;
-  background-color: rgba(255,255,255,0);
-	vertical-align: middle;
+
+header h2{
+  font-family: 'Karla','Hiragino Kaku Gothic Pro',sans-serif;
 }
-a {
-  text-decoration: none;
+
+header nav{
+	display: flex;
 }
-.nav {
-	font-size: 20px;
+
+header nav li{
+	margin: 0 15px;
 }
-/* 1100px以下の時*/
-@media (max-width: 1100px) {
+
+header nav li:first-child{
+	margin-left: 0;	
 }
-/* 1100px以上の時*/
-@media (min-width: 1101px) {
+
+header nav li:last-child{
+	margin-right: 0;	
 }
+
+ul, nav{
+	list-style: none;
+}
+.header-items {
+	text-decoration: none;
+	cursor: pointer;
+	opacity: 0.9;
+}
+.header-items:hover{
+	opacity: 1;
+}
+
+
+
+@media (max-width: 1000px){
+	header{
+		padding: 20px 50px;
+	}
+}
+
+
+@media (max-width: 700px){
+	header{
+		flex-direction: column;
+		display: none;
+	}
+
+	header h2{
+		margin-bottom: 15px;
+	}
+}
+
+
 
 </style>

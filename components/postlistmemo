@@ -1,0 +1,135 @@
+2020/12/30時点	
+	<v-col class="pa-2 mr-4 justify-center" cols="12" xs="12" sm="5" md="12" lg="12" xl="12">
+		<!--スマホ画面時のみ表示-->
+		<section class="article" v-if="$vuetify.breakpoint.smAndDown">
+			<v-card
+        class="mx-auto"
+        max-width="450"
+				min-height="485"
+      >
+				<v-img
+					v-if="post.fields.thumbnail"
+					class="thumbnail align-end px-3"
+					height="200px"
+					width="100%"
+					:src="post.fields.thumbnail.fields.file.url"
+					alt="thumbnail"
+					>
+					<nuxt-link :to="linkTo('posts', post)" class="post">
+						<v-card-title class="post-title pt-1 pb-0 pl-0 pr-0 mr-0">
+							#{{post.fields.slug}} {{ post.fields.title }}
+						</v-card-title>
+					</nuxt-link>
+					</v-img>
+					<v-img
+					v-else
+					class="thumbnail align-end px-3"
+					height="200px"
+					src="https://baseball-feed.com/assets/themes/easymag-pro/images/no-image.png"
+					alt="thumbnail"
+					>
+					<nuxt-link :to="linkTo('posts', post)" class="post">
+						<v-card-title class="post-title pt-1 pb-0 pl-0 pr-0 mr-0">
+							#{{post.fields.slug}} {{ post.fields.title }}
+						</v-card-title>
+					</nuxt-link>
+				</v-img>
+
+				<v-card-subtitle class="date pb-0">
+					<div class="formatteddate">{{ $getFormattedDate(post.fields.date) }}</div>
+				</v-card-subtitle>
+
+				<v-card-text class="text--primary post-description mt-2">
+					<div>{{ post.fields.description }}</div>
+				</v-card-text>
+
+				<v-card-actions>
+					<v-btn
+						color="orange"
+						text
+						v-for="category in post.fields.category"
+						:key="category.sys.id"
+						class="category">
+							# {{ category.fields.name }}
+					</v-btn>
+				</v-card-actions>
+				<v-btn
+					text
+					absolute
+					right
+					class="readmore pa-2"
+				>
+					<nuxt-link :to="linkTo('posts', post)">
+						>> more
+					</nuxt-link>
+				</v-btn>
+			</v-card>
+		</section>
+
+		<!--スマホ画面以外の時のみ表示-->
+		<section v-else class="article">
+			<v-card
+				class="mx-auto card-else"
+				max-width="800"
+				max-height="300"
+			>
+				<v-img
+					v-if="post.fields.thumbnail"
+					class="thumbnail align-end px-3"
+					height="300px"
+					width="40%"
+					:src="post.fields.thumbnail.fields.file.url"
+					alt="thumbnail"
+					>
+					<nuxt-link :to="linkTo('posts', post)" class="post">
+						<v-card-title class="post-title-else pt-1 pb-0 pl-0 pr-0 mr-0">
+							#{{post.fields.slug}} {{ post.fields.title }}
+						</v-card-title>
+					</nuxt-link>
+					</v-img>
+					<v-img
+					v-else
+					class="thumbnail align-end px-3"
+					height="300px"
+					width="40%"
+					src="https://baseball-feed.com/assets/themes/easymag-pro/images/no-image.png"
+					alt="thumbnail"
+					>
+					<nuxt-link :to="linkTo('posts', post)" class="post">
+						<v-card-title class="post-title-else pt-1 pb-0 pl-0 pr-0 mr-0">
+							#{{post.fields.slug}} {{ post.fields.title }}
+						</v-card-title>
+					</nuxt-link>
+				</v-img>
+
+				<v-card-subtitle class="date-else pb-0">
+					<div class="formatteddate">{{ $getFormattedDate(post.fields.date) }}</div>
+				</v-card-subtitle>
+
+				<v-card-text class="text--primary post-description-else mt-2">
+					<div>{{ post.fields.description }}</div>
+				</v-card-text>
+
+				<v-card-actions  class="category-fields-else">
+					<v-btn
+						color="orange"
+						text
+						v-for="category in post.fields.category"
+						:key="category.sys.id"
+						class="category">
+							# {{ category.fields.name }}
+					</v-btn>
+				</v-card-actions>
+				<v-btn
+					text
+					absolute
+					right
+					class="readmore-else pa-2"
+				>
+					<nuxt-link :to="linkTo('posts', post)">
+						>> more
+					</nuxt-link>
+				</v-btn>
+			</v-card>
+		</section>
+	</v-col>
