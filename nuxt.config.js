@@ -70,7 +70,7 @@ export default {
     '@nuxtjs/sitemap',
     'nuxt-webfontloader',
     ['@nuxtjs/google-analytics', {
-      id: 'UA-182241007-1'
+      id: 'UA-186293341-1'
     }]
   ],
   webfontloader: {
