@@ -33,7 +33,7 @@
       <ul>
         <li><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></li>
         <li><iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=button&size=small&width=69&height=20&appId" width="69" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></li>
-        <li><div class="line-it-button" data-lang="ja" data-type="share-a" data-ver="3" data-url="https://social-plugins.line.me/ja/how_to_install#lineitbutton" data-color="default" data-size="small" data-count="true" style="display: none;"></div><script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script></li>
+        <!--<li><div class="line-it-button" data-lang="ja" data-type="share-a" data-ver="3" data-url="https://social-plugins.line.me/ja/how_to_install#lineitbutton" data-color="default" data-size="small" data-count="true" style="display: none;"></div><script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script></li>-->
         <li><a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="basic-label" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script></li>
       </ul>
     </div>
@@ -159,6 +159,7 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  padding-left: 2px;
 }
 
 /* 1100px以下の時*/
@@ -192,8 +193,10 @@ a {
     margin: 10px 15px;
   }
   .table-of-contents {
-    padding-left: 5px;
     max-width: 500px;
+  }
+  .table-of-contents > ul, li {
+    font-size: 12px;
   }
 }
 /* 1100px以上の時*/
@@ -211,14 +214,16 @@ a {
     width: 100%;
   }
   .md-body {
-    margin: 0 auto;
+    text-align: center;
+    font-family: 'Montserrat','Noto Sans','Open Sans','Roboto',sans-serif;
+    margin-left: 5.5rem;
+    margin-right: 5.5rem;
   }
   img {
     width: 100%;
-    height: 450px;
-    justify-content: center;
-    padding: 10px;
+    padding: 10px 150px 7px 150px;
   }
+
   .post-content {
     margin: 0 auto;
     padding: 3% 50px;
@@ -230,7 +235,8 @@ a {
   .markdown-content {
     
   }
-  .md-body > h1, h2, h3, h4, p {
+  .md-body > h1, h2, h3, h4, p, ul, li {
+    text-align: initial;
   }
   .table-of-contents {
     padding-left: 10px;
@@ -238,11 +244,6 @@ a {
   }
   .table-of-contents > ul, li {
     font-size: 12px;
-  }
-  .md-body {
-    font-family: 'Montserrat','Noto Sans','Open Sans','Roboto',sans-serif;
-    margin-left: 5.5rem;
-    margin-right: 5.5rem;
   }
 
   /* SNS shareボタン*/
@@ -269,12 +270,10 @@ a {
   border-bottom: solid 3px #d7d7d7;/*下線*/
 }
 .md-body > h2 {
-  display: inline-block;
   font-size: 20px;
   background: linear-gradient(transparent 90%, #a7d6ff 70%);
 }
 .md-body > h3 {
-  display: inline-block;
   font-size: 18px;
   background: linear-gradient(transparent 90%, #a7d6ff 70%);
 }
