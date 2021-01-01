@@ -36,6 +36,21 @@
 							地方在住、今年30歳になる男です。30代を前に何かはじめようと思ってブログを作りました。ブログは、基本的に雑記ブログですが、仕事、投資、本、プログラミング（Python, Vue.js, Nuxt.js）などについて書いていこうと思います。
 						</div>
 						</v-col>
+							<ul class="snsbtniti">
+								<li><a href="https://twitter.com/K13938535" class="flowbtn10"><i class="fab fa-twitter"></i></a></li>
+								<!--
+								<li><a href="インスタのプロフィールURL" class="flowbtn10"><i class="fab fa-instagram"></i></a></li>
+								<li><a href="FacebookページのURL" class="flowbtn10"><i class="fab fa-facebook-f"></i></a>
+								<li><a href="https://feedly.com/i/subscription/feed/https://自分のサイトドメイン名/feed" class="flowbtn10"><i class="fas fa-rss"></i></a></li>
+								<li><a href="https://getpocket.com/edit?url=https://自分のサイトドメイン名/" class="flowbtn10"><i class="fab fa-get-pocket"></i></a></li>
+								-->
+								<li><a href="https://github.com/keita-fujino" class="flowbtn10"><i class="fab fa-github"></i></a></li>
+								<!--
+								<li><a href="youtubeのプロフィールURL" class="flowbtn10"><i class="fab fa-youtube"></i></a>
+								<li><a href="https://line.me/ti/p/%ライン＠のアカウント" class="flowbtn10"><i class="fab fa-line"></i></a>
+								<li><a href="お問い合わせ先のURL" class="flowbtn10"><i class="far fa-envelope"></i></a></li>
+								-->
+							</ul>
 					</v-row>
 				</v-card>
 		</div>
@@ -43,7 +58,6 @@
 </template>
 
 <style>
-
 /*----------------
  	Hero Section
 ----------------*/
@@ -155,5 +169,69 @@
 	.about {
 		color: #fff;
 	}
+}
+
+/* ボタン全体 */
+.flowbtn10{
+display:inline-block;	
+font-size:30px;
+text-decoration:none;
+transition:.5s;
+}
+/* インスタ・pocket・ラインだけ少し大きく */
+.flowbtn10 .fa-instagram,.flowbtn10 .fa-get-pocket,.flowbtn10 .fa-get-pocket,.flowbtn10 .fa-line{
+font-size:38px;
+}
+/* Twitterマウスホバー時 */
+.flowbtn10 .fa-twitter:hover{
+color:#55acee;
+}
+/* Instagramマウスホバー時 */
+.flowbtn10 .fa-instagram:hover{
+color:#c6529a;
+}
+/* Facebookマウスホバー時 */
+.flowbtn10 .fa-facebook-f:hover{
+color:#3b5998;
+}
+/* Feedlyマウスホバー時 */
+.flowbtn10 .fa-rss:hover{
+color:#6cc655;
+}
+/* Pocketマウスホバー時 */
+.flowbtn10 .fa-get-pocket:hover{
+color:#ef3f56;
+}
+/* Githubマウスホバー時 */
+.flowbtn10 .fa-github:hover{
+color:#2d2e2e;	
+}
+/* YouTubeマウスホバー時 */
+.flowbtn10 .fa-youtube:hover{
+color:#fc0d1c;
+}
+/* LINEマウスホバー時 */
+.flowbtn10 .fa-line:hover{
+color:#00c300;
+}
+/* メールアイコンマウスホバー時 */
+.flowbtn10 .fa-envelope:hover{
+color:#f3981d;		
+}
+/* ulタグの内側余白を０にする */
+ul.snsbtniti{
+padding:0!important;
+}
+/* アイコン全体の位置 */
+.snsbtniti{
+display:flex;
+flex-flow:row wrap;
+justify-content:space-between;	
+}
+/* アイコン同士の余白 */
+.snsbtniti li{
+flex:0 0 20%;
+text-align:center!important;
+margin-right: 15px;
 }
 </style>

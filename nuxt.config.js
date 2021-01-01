@@ -30,7 +30,8 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/fujinotefavicon.png' },
-      { rel: "stylesheet", href:"https://use.fontawesome.com/releases/v5.6.1/css/all.css"}
+      { rel: "stylesheet", href:"https://use.fontawesome.com/releases/v5.6.1/css/all.css"},
+      { rel: "stylesheet", href:"https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"}
     ]
   },
   /*
