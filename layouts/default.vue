@@ -31,6 +31,7 @@ export default {
   data () {
     return {
       menu: [
+        // nuxt-linkの生成のためのプラグイン
         {
           header: true,
           title: 'Fujinote',
@@ -50,16 +51,6 @@ export default {
           href: '#about',
           title: 'About',
           icon: 'fa fa-user',
-        },
-        {
-          href: 'https://github.com/keita-fujino',
-          title: 'Git hub',
-          icon: 'fab fa-github'
-        },
-        {
-          href: 'https://twitter.com/K13938535',
-          title: 'Twitter',
-          icon: 'fab fa-twitter'
         }
       ],
       collapsed: false,

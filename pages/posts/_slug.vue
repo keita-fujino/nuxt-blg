@@ -216,11 +216,11 @@ a {
   .md-body {
     text-align: center;
     font-family: 'Montserrat','Noto Sans','Open Sans','Roboto',sans-serif;
-    margin-left: 5.5rem;
-    margin-right: 5.5rem;
+    margin-left: 6rem;
+    margin-right: 6rem;
   }
   img {
-    width: 100%;
+    width: 70%;
     padding: 10px 150px 7px 150px;
   }
 
